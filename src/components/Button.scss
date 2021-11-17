@@ -1,0 +1,81 @@
+@import "../scss/variables";
+@import "../scss/mixins";
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 120px;
+  width: 100%;
+  padding: 8px 10px 7px;
+
+  background: transparent;
+  border-radius: 4px;
+
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.33;
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  @media (max-width: 540px) {
+    display: block;
+    max-width: none;
+  }
+
+  &_primary {
+    background: linear-gradient(180deg, $color-primary-lighter 0%, #E88300 100%);
+    border: thin solid #E88300;
+    color: $color-light;
+
+    @media (hover: hover), (pointer: fine) {
+      &:hover {
+        background: $color-primary;
+      }
+    }
+
+    &:active {
+      background: linear-gradient(180deg, $color-primary-darker 0%, $color-primary-lighter 100%);
+    }
+
+    &:focus {
+      background: $color-primary;
+      border: thin solid $color-primary-darker;
+      box-shadow: 0 0 4px $color-primary-darker;
+    }
+
+    &:disabled {
+      background: #FFD8A5;
+      border: 1px solid #FFB85C;
+      cursor: not-allowed;
+    }
+  }
+
+  &_secondary {
+    background: linear-gradient(180deg, $color-secondary 0%, $color-secondary-lighter 100%);
+    border: thin solid $color-secondary-darker;
+    color: $color-dark;
+
+    @media (hover: hover), (pointer: fine) {
+      &:hover {
+        background: $color-secondary;
+      }
+    }
+
+    &:active {
+      background: linear-gradient(180deg, $color-secondary-lighter 0%, $color-secondary 100%);
+    }
+
+    &:focus {
+      background: linear-gradient(180deg, $color-secondary 0%, $color-secondary-lighter 100%);
+      border: thin solid $color-secondary-darker;
+      box-shadow: 0 0 4px $color-secondary-darker;
+    }
+
+    &:disabled {
+      background: #F9F9F9;
+      cursor: not-allowed;
+    }
+  }
+}
